@@ -2,12 +2,14 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { type RootState } from './store/store';
-import { startFast, endFast, tick, deleteSession, selectStats } from './store/fastingSlice';
+import { startFast, endFast, tick, deleteSession, selectStats, type FastingSession } from './store/fastingSlice';
 import { TimerDisplay } from './components/TimerDisplay';
 import { FastingControls } from './components/FastingControls';
 import { FastingHistory } from './components/FastingHistory';
 import { StatsCards } from './components/StatsCards';
 import { ConfirmDialog } from './components/ConfirmDialog';
+import { FastingInsights } from './components/FastingInsights';
+import { Modal } from './components/Modal';
 
 interface AppProps {
   user?: string;
@@ -22,6 +24,8 @@ function App({ user }: AppProps) {
   const [showEndFastDialog, setShowEndFastDialog] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [sessionToDelete, setSessionToDelete] = useState<string | null>(null);
+  const [showInsightsModal, setShowInsightsModal] = useState(false);
+  const [selectedSession, setSelectedSession] = useState<FastingSession | null>(null);
 
   // Get last 10 fasts
   const recentHistory = useMemo(() => history.slice(0, 10), [history]);
@@ -68,6 +72,11 @@ function App({ user }: AppProps) {
     }
   };
 
+  const handleViewInsights = (session: FastingSession) => {
+    setSelectedSession(session);
+    setShowInsightsModal(true);
+  };
+
   return (
     <div className="fasting-container">
       <div className="header">
@@ -103,7 +112,8 @@ function App({ user }: AppProps) {
 
       <FastingHistory 
         history={recentHistory} 
-        onDelete={handleDelete} 
+        onDelete={handleDelete}
+        onViewInsights={handleViewInsights}
       />
 
       {/* Confirmation Dialogs */}
@@ -128,6 +138,17 @@ function App({ user }: AppProps) {
         cancelText="Cancel"
         variant="danger"
       />
+
+      {/* Insights Modal */}
+      {selectedSession && (
+        <Modal
+          isOpen={showInsightsModal}
+          onClose={() => setShowInsightsModal(false)}
+          title="Fasting Insights"
+        >
+          <FastingInsights durationSeconds={selectedSession.durationSeconds} />
+        </Modal>
+      )}
     </div>
   );
 }

@@ -1,10 +1,11 @@
-import { Trash2, History } from 'lucide-react';
+import { Trash2, History, Info } from 'lucide-react';
 import type { FastingSession } from '../store/fastingSlice';
 import { format } from 'date-fns';
 
 interface FastingHistoryProps {
   history: FastingSession[];
   onDelete: (id: string) => void;
+  onViewInsights: (session: FastingSession) => void;
 }
 
 const formatDuration = (seconds: number) => {
@@ -12,7 +13,7 @@ const formatDuration = (seconds: number) => {
   return `${hours}h`;
 };
 
-export function FastingHistory({ history, onDelete }: FastingHistoryProps) {
+export function FastingHistory({ history, onDelete, onViewInsights }: FastingHistoryProps) {
   if (history.length === 0) {
     return (
       <div className="history-empty">
@@ -39,13 +40,23 @@ export function FastingHistory({ history, onDelete }: FastingHistoryProps) {
             <div className="history-duration">
               {formatDuration(session.durationSeconds)}
             </div>
-            <button 
-              className="btn-delete"
-              onClick={() => onDelete(session.id)}
-              aria-label="Delete Session"
-            >
-              <Trash2 size={16} />
-            </button>
+            <div className="history-actions">
+              <button 
+                className="btn-insights"
+                onClick={() => onViewInsights(session)}
+                aria-label="View Insights"
+                title="View fasting insights"
+              >
+                <Info size={16} />
+              </button>
+              <button 
+                className="btn-delete"
+                onClick={() => onDelete(session.id)}
+                aria-label="Delete Session"
+              >
+                <Trash2 size={16} />
+              </button>
+            </div>
           </div>
         ))}
       </div>
