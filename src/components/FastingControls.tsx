@@ -1,3 +1,5 @@
+import { Play, Square } from 'lucide-react';
+
 interface FastingControlsProps {
   isFasting: boolean;
   onStart: () => void;
@@ -13,7 +15,7 @@ export function FastingControls({ isFasting, onStart, onEnd }: FastingControlsPr
           onClick={onStart}
           aria-label="Start Fast"
         >
-          <span className="icon-emoji">▶️</span>
+          <Play size={24} fill="currentColor" />
           <span>Start Fasting</span>
         </button>
       ) : (
@@ -22,7 +24,7 @@ export function FastingControls({ isFasting, onStart, onEnd }: FastingControlsPr
           onClick={onEnd}
           aria-label="End Fast"
         >
-          <span className="icon-emoji">⏹️</span>
+          <Square size={24} fill="currentColor" />
           <span>End Fast</span>
         </button>
       )}

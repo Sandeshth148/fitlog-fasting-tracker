@@ -1,3 +1,5 @@
+import { Timer } from 'lucide-react';
+
 interface TimerDisplayProps {
   elapsedSeconds: number;
   isActive: boolean;
@@ -16,7 +18,7 @@ export function TimerDisplay({ elapsedSeconds, isActive }: TimerDisplayProps) {
   return (
     <div className={`timer-container ${isActive ? 'active' : ''}`}>
       <div className="timer-icon">
-        <span className={`icon-emoji ${isActive ? 'pulse' : ''}`}>⏱️</span>
+        <Timer size={48} className={isActive ? 'pulse' : ''} />
       </div>
       <div className="timer-value">
         {formatTime(elapsedSeconds)}

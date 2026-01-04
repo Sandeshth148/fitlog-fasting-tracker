@@ -1,3 +1,4 @@
+import { AlertTriangle } from 'lucide-react';
 import { Modal } from './Modal';
 
 interface ConfirmDialogProps {
@@ -26,13 +27,11 @@ export function ConfirmDialog({
     onClose();
   };
 
-  const iconEmoji = variant === 'danger' ? '⚠️' : variant === 'warning' ? '⚠️' : 'ℹ️';
-
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title}>
       <div className="confirm-dialog">
         <div className={`confirm-icon confirm-icon-${variant}`}>
-          <span className="icon-emoji" style={{ fontSize: '3rem' }}>{iconEmoji}</span>
+          <AlertTriangle size={48} />
         </div>
         <p className="confirm-message">{message}</p>
         <div className="confirm-actions">

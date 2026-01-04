@@ -1,3 +1,4 @@
+import { Trash2, History, Info } from 'lucide-react';
 import type { FastingSession } from '../store/fastingSlice';
 import { format } from 'date-fns';
 
@@ -16,7 +17,7 @@ export function FastingHistory({ history, onDelete, onViewInsights }: FastingHis
   if (history.length === 0) {
     return (
       <div className="history-empty">
-        <span className="icon-emoji" style={{ fontSize: '2rem' }}>📜</span>
+        <History size={32} />
         <p>No completed fasts yet. Start one today!</p>
       </div>
     );
@@ -46,14 +47,14 @@ export function FastingHistory({ history, onDelete, onViewInsights }: FastingHis
                 aria-label="View Insights"
                 title="View fasting insights"
               >
-                <span className="icon-emoji">ℹ️</span>
+                <Info size={16} />
               </button>
               <button 
                 className="btn-delete"
                 onClick={() => onDelete(session.id)}
                 aria-label="Delete Session"
               >
-                <span className="icon-emoji">🗑️</span>
+                <Trash2 size={16} />
               </button>
             </div>
           </div>

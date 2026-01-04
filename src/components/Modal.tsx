@@ -1,3 +1,4 @@
+import { X } from 'lucide-react';
 import { useEffect } from 'react';
 
 interface ModalProps {
@@ -44,7 +45,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         <div className="modal-header">
           <h3>{title}</h3>
           <button className="modal-close" onClick={onClose} aria-label="Close">
-            <span className="icon-emoji">✖️</span>
+            <X size={20} />
           </button>
         </div>
         <div className="modal-body">
