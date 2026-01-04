@@ -1,4 +1,3 @@
-import { Flame, Zap, Activity, Sparkles } from 'lucide-react';
 import { calculateFastingInsights, FASTING_PHASES, getPhaseProgress } from '../utils/fastingInsights';
 
 interface FastingInsightsProps {
@@ -32,7 +31,7 @@ export function FastingInsights({ durationSeconds }: FastingInsightsProps) {
       <div className="insights-metrics">
         <div className="metric-card">
           <div className="metric-icon" style={{ color: '#ef4444' }}>
-            <Flame size={24} />
+            <span className="icon-emoji" style={{ fontSize: '1.5rem' }}>🔥</span>
           </div>
           <div className="metric-content">
             <div className="metric-value">{insights.caloriesBurned}</div>
@@ -42,7 +41,7 @@ export function FastingInsights({ durationSeconds }: FastingInsightsProps) {
 
         <div className="metric-card">
           <div className="metric-icon" style={{ color: '#f59e0b' }}>
-            <Zap size={24} />
+            <span className="icon-emoji" style={{ fontSize: '1.5rem' }}>⚡</span>
           </div>
           <div className="metric-content">
             <div className="metric-value">{insights.fatBurned}g</div>
@@ -52,7 +51,7 @@ export function FastingInsights({ durationSeconds }: FastingInsightsProps) {
 
         <div className="metric-card">
           <div className="metric-icon" style={{ color: '#10b981' }}>
-            <Activity size={24} />
+            <span className="icon-emoji" style={{ fontSize: '1.5rem' }}>💪</span>
           </div>
           <div className="metric-content">
             <div className="metric-value">{insights.ketosisLevel}%</div>
@@ -62,7 +61,7 @@ export function FastingInsights({ durationSeconds }: FastingInsightsProps) {
 
         <div className="metric-card">
           <div className="metric-icon" style={{ color: '#8b5cf6' }}>
-            <Sparkles size={24} />
+            <span className="icon-emoji" style={{ fontSize: '1.5rem' }}>✨</span>
           </div>
           <div className="metric-content">
             <div className="metric-value">{insights.autophagyLevel}%</div>

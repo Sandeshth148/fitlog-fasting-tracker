@@ -60,6 +60,13 @@
   box-sizing: border-box;
 }
 
+/* Icon Emoji Styling */
+.icon-emoji {
+  display: inline-block;
+  line-height: 1;
+  font-style: normal;
+}
+
 .fasting-container {
   max-width: 800px;
   margin: 0 auto;
