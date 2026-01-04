@@ -7,12 +7,18 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: false,
+    cssCodeSplit: false,
     lib: {
       entry: './src/web-component.tsx',
       name: 'FastingTracker',
       fileName: 'fasting-tracker',
       formats: ['es']
     },
+    rollupOptions: {
+      output: {
+        inlineDynamicImports: true,
+      }
+    }
   },
   define: {
     'process.env': {}

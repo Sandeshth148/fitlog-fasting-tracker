@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 import App from './App'
+import './App.css'
 
 class FastingTrackerElement extends HTMLElement {
   private root: ReactDOM.Root | null = null;
@@ -13,8 +16,8 @@ class FastingTrackerElement extends HTMLElement {
     this.render();
   }
 
-  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    console.log(`⚛️ React WC: Attribute ${name} changed from ${oldValue} to ${newValue}`);
+  attributeChangedCallback(_name: string, oldValue: string, newValue: string) {
+    console.log(`⚛️ React WC: Attribute ${_name} changed from ${oldValue} to ${newValue}`);
     if (oldValue !== newValue) {
       this.render();
     }
@@ -30,7 +33,9 @@ class FastingTrackerElement extends HTMLElement {
 
     this.root.render(
       <React.StrictMode>
-        <App user={user} />
+        <Provider store={store}>
+          <App user={user} />
+        </Provider>
       </React.StrictMode>
     );
   }
