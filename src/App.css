@@ -408,6 +408,7 @@ button:active {
   padding: 1rem;
   backdrop-filter: blur(4px);
   animation: fadeIn 0.2s ease;
+  overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -423,9 +424,12 @@ button:active {
   background: var(--bg-card);
   border-radius: 1rem;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   animation: slideUp 0.3s ease;
+  margin: auto;
 }
 
 @keyframes slideUp {
@@ -856,5 +860,19 @@ button:active {
 
   .benefits-list {
     grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .timeline-phase-header {
+    flex-wrap: wrap;
+  }
+
+  .timeline-time {
+    width: 100%;
+    margin-top: 0.25rem;
   }
 }
