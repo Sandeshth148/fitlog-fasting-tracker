@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitLog Fasting Tracker</title>
+  <link rel="stylesheet" href="/fasting-tracker.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      color: #667eea;
+      margin: 0;
+    }
+    .header p {
+      color: #666;
+      margin: 10px 0;
+    }
+    .info-box {
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .info-box h3 {
+      margin-top: 0;
+      color: #667eea;
+    }
+    code {
+      background: #e0e7ff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🍎 FitLog Fasting Tracker</h1>
+      <p>React Micro-Frontend for Intermittent Fasting</p>
+    </div>
+
+    <div class="info-box">
+      <h3>📦 Standalone Preview</h3>
+      <p>This is a standalone preview of the Fasting Tracker MFE. In production, this component is loaded dynamically by the FitLog Shell application.</p>
+    </div>
+
+    <!-- Web Component will render here -->
+    <fitlog-fasting-tracker-element user="Guest"></fitlog-fasting-tracker-element>
+
+    <div class="info-box">
+      <h3>🔗 Integration</h3>
+      <p>To integrate this MFE into your Angular Shell:</p>
+      <pre><code>&lt;script src="https://fitlog-fasting-tracker.netlify.app/fasting-tracker.js" type="module"&gt;&lt;/script&gt;
+&lt;fitlog-fasting-tracker-element user="YourUserName"&gt;&lt;/fitlog-fasting-tracker-element&gt;</code></pre>
+    </div>
+
+    <div class="info-box">
+      <h3>📚 Resources</h3>
+      <p>
+        <strong>GitHub:</strong> <a href="https://github.com/Sandeshth148/fitlog-fasting-tracker" target="_blank">Repository</a><br>
+        <strong>Tech Stack:</strong> React 19, Redux Toolkit, TypeScript, Vite<br>
+        <strong>Integration:</strong> Web Components
+      </p>
+    </div>
+  </div>
+
+  <!-- Load the web component -->
+  <script src="/fasting-tracker.js" type="module"></script>
+</body>
+</html>
