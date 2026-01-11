@@ -840,25 +840,105 @@ button:active {
 }
 
 /* Responsive */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .fasting-container {
     padding: 1rem 0.75rem;
   }
 
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .user-welcome {
+    padding: 1rem 1.25rem;
+  }
+
+  .user-welcome p {
+    font-size: 0.9375rem;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.6875rem;
+  }
+
+  .timer-container {
+    padding: 2rem 1.5rem;
+    margin: 2rem 0;
   }
 
   .timer-value {
     font-size: 3rem;
   }
 
-  .header h1 {
-    font-size: 1.5rem;
+  .controls-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+
+  .history-container {
+    padding: 1.25rem;
+  }
+
+  .history-container h3 {
+    font-size: 1.125rem;
+  }
+
+  .history-item {
+    padding: 0.875rem;
+    flex-wrap: wrap;
+  }
+
+  .history-info {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .history-duration {
+    margin-right: 0.5rem;
+    font-size: 1rem;
   }
 
   .modal-overlay {
     padding: 0.5rem;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: 1.25rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
   }
 
   .confirm-actions {
@@ -878,11 +958,6 @@ button:active {
     grid-template-columns: 1fr;
   }
 
-  .modal-content {
-    max-width: 95vw;
-    max-height: 95vh;
-  }
-
   .timeline-phase-header {
     flex-wrap: wrap;
   }
@@ -890,5 +965,80 @@ button:active {
   .timeline-time {
     width: 100%;
     margin-top: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fasting-container {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .user-welcome {
+    padding: 0.875rem 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+
+  .stat-card {
+    flex-direction: row;
+    text-align: left;
+    padding: 0.875rem;
+  }
+
+  .timer-container {
+    padding: 1.5rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .timer-value {
+    font-size: 2.5rem;
+  }
+
+  .timer-label {
+    font-size: 0.8125rem;
+  }
+
+  button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .history-container {
+    padding: 1rem;
+  }
+
+  .history-item {
+    padding: 0.75rem;
+  }
+
+  .history-date {
+    font-size: 0.875rem;
+  }
+
+  .history-time {
+    font-size: 0.75rem;
+  }
+
+  .history-duration {
+    font-size: 0.9375rem;
+  }
+
+  .modal-header h3 {
+    font-size: 1.125rem;
+  }
+
+  .metric-card {
+    padding: 0.875rem;
+  }
+
+  .metric-value {
+    font-size: 1.125rem;
   }
 }
