@@ -48,10 +48,10 @@
   --warning: #f59e0b;
   --danger: var(--color-danger, #ef4444);
   --bg-main: transparent;
-  --bg-card: var(--color-surface, rgba(255, 255, 255, 0.6));
+  --bg-card: var(--color-card-bg, var(--color-surface, rgba(255, 255, 255, 0.6)));
   --text-main: var(--color-text-primary, #0f172a);
   --text-muted: var(--color-text-secondary, #64748b);
-  --border: var(--glass-border, rgba(255, 255, 255, 0.15));
+  --border: var(--color-card-border, var(--glass-border, rgba(255, 255, 255, 0.15)));
   --shadow: var(--glass-shadow, 0 8px 32px 0 rgba(31, 38, 135, 0.06));
   --shadow-lg: var(--glass-shadow, 0 8px 32px 0 rgba(31, 38, 135, 0.1));
 }
@@ -68,9 +68,9 @@
 }
 
 .fasting-container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2.5rem 1rem;
+  padding: 2.5rem 1.5rem;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-main);
   background: transparent;
@@ -93,12 +93,15 @@
 
 /* User Welcome */
 .user-welcome {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(var(--glass-blur, 14px)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur, 14px)) saturate(180%);
 }
 
 .user-welcome p {
@@ -108,11 +111,12 @@
 }
 
 .user-welcome strong {
+  color: var(--primary);
   font-weight: 600;
 }
 
 .user-subtitle {
-  opacity: 0.9;
+  color: var(--text-muted);
   font-size: 0.875rem !important;
   margin-top: 0.25rem !important;
 }
@@ -295,8 +299,8 @@ button:active {
 }
 
 .btn-stop:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
+  background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.08);
+  border-color: rgba(var(--color-primary-rgb, 59, 130, 246), 0.25);
 }
 
 /* History */
@@ -357,8 +361,8 @@ button:active {
 }
 
 .history-item:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
+  background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.06);
+  border-color: rgba(var(--color-primary-rgb, 59, 130, 246), 0.2);
 }
 
 .history-info {
@@ -567,8 +571,8 @@ button:active {
 }
 
 .btn-cancel:hover {
-  background: #e2e8f0;
-  border-color: #cbd5e1;
+  background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.08);
+  border-color: rgba(var(--color-primary-rgb, 59, 130, 246), 0.2);
 }
 
 .btn-confirm {
@@ -735,7 +739,7 @@ button:active {
 
 .timeline-phase.active {
   border-color: var(--primary);
-  background: #f0f9ff;
+  background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.08);
 }
 
 .timeline-phase.completed {
@@ -789,14 +793,15 @@ button:active {
 .benefit-tag {
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
-  background: white;
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 0.375rem;
   color: var(--text-muted);
 }
 
 .benefits-achieved {
-  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.04) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: 0.75rem;
   padding: 1rem;
 }
@@ -805,7 +810,7 @@ button:active {
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 0.75rem 0;
-  color: #065f46;
+  color: #10b981;
 }
 
 .benefits-list {
@@ -819,7 +824,7 @@ button:active {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #065f46;
+  color: var(--text-muted);
 }
 
 .benefit-check {
@@ -846,7 +851,7 @@ button:active {
 }
 
 .btn-insights:hover {
-  background: #e0e7ff;
+  background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.12);
   color: var(--primary-hover);
 }
 
